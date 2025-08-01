@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); min-height: 100vh; margin: 0;">
+  <header style="background: #1976d2; color: #fff; padding: 32px 0 18px 0; text-align: center; box-shadow: 0 2px 12px rgba(25, 118, 210, 0.08); position: relative;">
+    <button id="logoutBtn" style="position: absolute; top: 24px; right: 36px; background: #fff; color: #1976d2; border: none; border-radius: 6px; padding: 8px 18px; font-weight: 600; font-size: 1rem; cursor: pointer; box-shadow: 0 2px 8px #1976d244; transition: background 0.2s;">Logout</button>
+    <h1 style="margin: 0; font-size: 2.3rem; letter-spacing: 1px;">Lost & Found Dashboard</h1>
+    <p style="margin: 8px 0 0 0; font-size: 1.1rem; color: #e3f2fd;">Find and report lost or found items easily</p>
+  </header>
+  <main style="max-width: 900px; margin: 36px auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(44,62,80,0.10); padding: 38px 32px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+      <h2 style="color: #1976d2; font-size:1.5rem; margin: 0;">Lost & Found Reports</h2>
+      <a href="report.html" style="background:#43cea2;color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-weight:500;transition:background 0.2s;">Report a Lost/Found Item</a>
+    </div>
+    <div style="margin: 18px 0; text-align:center;">
+      <input type="text" id="searchInput" placeholder="Search by title, location, or contact..." style="width: 340px; max-width: 98vw; padding: 12px; border-radius: 8px; border: 1.5px solid #b0bec5; font-size: 1.08rem;">
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 24px; justify-content: space-between;">
+      <div style="flex:1 1 0; min-width:320px;">
+        <h3 style="color:#1976d2; text-align:center;">Lost Items</h3>
+        <div id="lostItems" style="display: grid; grid-template-columns: 1fr; gap: 18px;"></div>
+      </div>
+      <div style="flex:1 1 0; min-width:320px;">
+        <h3 style="color:#43cea2; text-align:center;">Found Items</h3>
+        <div id="foundItems" style="display: grid; grid-template-columns: 1fr; gap: 18px;"></div>
+      </div>
+    </div>
+  </main>
+  <script src="js/dashboard.js"></script>
+  <script>
+    document.getElementById('logoutBtn').onclick = function() {
+      localStorage.removeItem('token');
+      window.location.href = 'login.html';
+    };
+  </script>
+</body>
+</html>
